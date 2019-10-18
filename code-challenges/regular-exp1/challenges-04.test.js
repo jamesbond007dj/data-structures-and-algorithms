@@ -26,8 +26,7 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  
-  if ( str.match(/\b[A-Z][a-z]*/g)) {
+    if ( str.match(/\b[A-Z][a-z]*/g)) {
     let result = str.match(/\b[A-Z][a-z]*/g) ;
     return result ;
   } else {
