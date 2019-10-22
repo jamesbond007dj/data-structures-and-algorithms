@@ -111,16 +111,13 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  let haschildren = false;
-  let templateArray = Object.entries(arr);
-  for ( let i; i < templateArray.length; i++) {
-    if (templateArray[i][1].name === character){
-      if (templateArray[i][1].children.length > 0) {
-        haschildren = true
-      }
+  let hasChildren = false;
+  arr.forEach(characters => {
+    if (Object.entries(characters)[0][1] === character && !! Object.entries(characters)[2][1][0]){
+      hasChildren = true;
     }
-  }
-  return haschildren;
+  });  
+  return hasChildren;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -130,7 +127,11 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  let numberCharacters = 0;
+  arr.forEach(characters => {
+    numberCharacters += 1 + (characters.spouse ? 1 : 0) + characters.children.length;
+  });
+  return numberCharacters;
 };
 
 /* ------------------------------------------------------------------------------------------------
