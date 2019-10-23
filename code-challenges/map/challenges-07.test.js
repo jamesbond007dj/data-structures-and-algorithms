@@ -35,17 +35,20 @@ const forEachTwoToThe = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
-Write a function named mapTwoToThe that produces the same output as your forLoopTwoToThe function from challenge 1 and your forEachTwoToThe function from challenge 2, but uses map instead of a for loop or forEach.
+Write a function named mapTwoToThe that produces the same output as your forLoopTwoToThe function
+from challenge 1 and your forEachTwoToThe function from challenge 2, but uses map instead of a for loop or forEach.
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
-  // Solution code here...
+  let result = arr.map(number => Math.pow(2, number));
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named charCode that, given an array of letters as an input, uses map to return a new array where each element is the result of the `charCodeAt` method on the original array element.
+Write a function named charCode that, given an array of letters as an input, 
+uses map to return a new array where each element is the result of the `charCodeAt` method on the original array element.
 
 Read the MDN documentation on String.charCodeAt() if necessary.
 
@@ -53,7 +56,8 @@ For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
 const charCode = (arr) => {
-  // Solution code here...
+  let result = arr.map (letter => letter.charCodeAt());
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,7 +71,16 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
-  // Solution code here...
+ let newArray = arr.map(number =>{
+   if (number %2 === 0){
+     return number = 'even';
+   } else if ( number %2 === 1) {
+     return number = 'odd';
+   } else {
+     return number = 'N/A';
+   }
+ })
+ return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -113,7 +126,8 @@ const snorlaxAbilities = {
 };
 
 const extractAbilities = (arr) => {
-  // Solution code here...
+  let abilities = arr.map(data => data.ability.name);
+  return abilities;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -159,8 +173,12 @@ const snorlaxStats = {
   weight: 4600,
 };
 
+
 const extractStats = (arr) => {
-  // Solution code here...
+  let totalStats = arr.map (anyStat => {
+    return {name: anyStat.stat.name, total: anyStat.effort+anyStat.baseStat};
+  });
+  return totalStats;
 };
 
 /* ------------------------------------------------------------------------------------------------
