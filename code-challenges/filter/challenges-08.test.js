@@ -28,7 +28,9 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 
 const filterStringsWithVowels = (arr) => {
-  let newArray = arr.filter(word => { return word } ) 
+  const regex = /[aeiou]/g;
+  let newArray = arr.filter(word => word.match(regex));
+  return newArray;
 };
 
 
