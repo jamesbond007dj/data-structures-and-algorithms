@@ -93,23 +93,21 @@ const getBaseStatGreaterThan = (arr, minBaseStat) => arr.filter(value => (value.
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function named getStatName that is an extension of your getBaseStatGreaterThan function from challenge 4. For this function, extend your solution from challenge 4 to only return the name of the stat, rather than the entire stat object.
+Write a function named getStatName that is an extension of your getBaseStatGreaterThan function 
+from challenge 4. For this function, extend your solution from challenge 4 to only return the name of the stat, 
+rather than the entire stat object.
 
 For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 'special-attack'].
 ------------------------------------------------------------------------------------------------ */
 
-const getStatName = (arr, minBaseStat) => {
-  let statsData = getBasesStatGreaterThan(arr, minBaseStat);
-  let statName = statsData.map(stats => {
-    return stats.stat.name;
-  })
-  return statName;
-};
+const getStatName = (arr, minBaseStat) => 
+  arr.filter(nameStat => (nameStat.baseStat > minBaseStat)).map(nameStat => nameStat.stat.name);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named getCharactersWithoutChildren that, given the array of characters, below, uses filter to return an array of all characters without children.
+Write a function named getCharactersWithoutChildren that, given the array of characters, below, 
+uses filter to return an array of all characters without children.
 ------------------------------------------------------------------------------------------------ */
 
 const characters = [
@@ -155,14 +153,15 @@ const characters = [
   },
 ];
 
-const getCharactersWithoutChildren = (arr) => {
-  // Solution code here...
-};
+const getCharactersWithoutChildren = (arr) => 
+  arr.filter(character => !character.children);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
-Write a function named evenOddNumericValues that, given an array as input, uses filter to remove any non-numeric values, then uses map to generate a new array containing the string 'even' or 'odd', depending on the original value.
+Write a function named evenOddNumericValues that, given an array as input, 
+uses filter to remove any non-numeric values, then uses map to generate a new array 
+containing the string 'even' or 'odd', depending on the original value.
 
 For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 'odd'].
 ------------------------------------------------------------------------------------------------ */
