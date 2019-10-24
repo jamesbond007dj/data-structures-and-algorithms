@@ -99,7 +99,11 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 ------------------------------------------------------------------------------------------------ */
 
 const getStatName = (arr, minBaseStat) => {
-  // Solution code here...
+  let statsData = getBasesStatGreaterThan(arr, minBaseStat);
+  let statName = statsData.map(stats => {
+    return stats.stat.name;
+  })
+  return statName;
 };
 
 /* ------------------------------------------------------------------------------------------------
