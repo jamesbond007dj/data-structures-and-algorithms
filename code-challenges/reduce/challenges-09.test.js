@@ -87,13 +87,17 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  // Solution code here...
+  return str.split("").reduce((answerSoFar, value)=> {
+    answerSoFar.unshift(value);
+    return answerSoFar
+  }, []).join('');  
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
-Write a function named countNumberOfChildren that, given the array of characters, below, uses reduce to return the total number of children in the data set.
+Write a function named countNumberOfChildren that, given the array of characters, below, 
+uses reduce to return the total number of children in the data set.
 ------------------------------------------------------------------------------------------------ */
 
 const characters = [
@@ -140,7 +144,8 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  return arr.reduce ((answerSoFar, count) => 
+  count.children? answerSoFar += count.children.length : answerSoFar +=0, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -152,13 +157,16 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
-};
+  return arr.reduce((answerSoFar, amount, index, array)=>{
+    return answerSoFar + (amount/array.length);
+  }, 0);
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named countPrimeNumbers that, given an array elements as input, uses reduce to count the number of elements that are prime numbers.
+Write a function named countPrimeNumbers that, given an array elements as input, 
+uses reduce to count the number of elements that are prime numbers.
 
 You are welcome to use the provided isPrime function.
 ------------------------------------------------------------------------------------------------ */
@@ -173,7 +181,7 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (arr) => {
-  // Solution code here...
+ return arr.reduce((answerSoFar , number) => isPrime(number)? ++answerSoFar : answerSoFar, 0); 
 };
 
 /* ------------------------------------------------------------------------------------------------
