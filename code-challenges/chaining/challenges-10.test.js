@@ -122,9 +122,11 @@ let starWarsData = [{
   gender: 'female'
 }];
 
-let findMaleAndFemale = (data) => {
-  // Solution code here...
-};
+let findMaleAndFemale = (data) => 
+  data.filter(value => value.gender === 'male' || value.gender === 'female')
+  .map(value => value.name)
+  .reduce((answerSoFar, character)=> answerSoFar + ' and ' + character);
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -193,3 +195,4 @@ describe('Testing challenge 5', () => {
     expect(findShortest(starWarsData)).toStrictEqual('R2-D2');
   });
 });
+
