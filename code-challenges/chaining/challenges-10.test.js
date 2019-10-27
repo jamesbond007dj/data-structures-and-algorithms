@@ -25,17 +25,21 @@ const count = (target, input) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
-Write a function that, given an array of integer arrays as input, calculates the total sum of all the elements in the array.
+Write a function that, given an array of integer arrays as input, 
+calculates the total sum of all the elements in the array.
 
-You may want to use filter, map, or reduce for this problem, but are not required to. You may need to use the same method more than once.
+You may want to use filter, map, or reduce for this problem, but are not required to. 
+You may need to use the same method more than once.
 
 For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  // Solution code here...
-};
-
+  return input.reduce((answerSoFar , value) => { 
+    return answerSoFar + value.reduce((answerSoFar , value)=> {
+      return answerSoFar += value;},0);
+    },0);
+  };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
