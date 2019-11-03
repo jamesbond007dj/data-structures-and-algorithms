@@ -27,10 +27,10 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
     if ( str.match(/\b[A-Z][a-z]*/g)) {
-    let result = str.match(/\b[A-Z][a-z]*/g) ;
-    return result ;
+    let result = str.match(/\b[A-Z][a-z]*/g);
+    return result;
   } else {
-    return [] ;
+    return [];
   }
 };
 
@@ -85,13 +85,9 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = str => {
-  if (str.match(/\w+ /g)) {
-  let clean = str.match(/\w+ /g);
-  return clean;
-  } else {
-    return [];
-  }
- };
+ const regex = /[a-zA-Z0-9]*\b\s/g;
+ return str.match(regex);
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -106,7 +102,7 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
- let regex = /[aeiou]/g;
+ let regex = /[aeiou]/gi;
  return str.replace(regex, '_');
 };
 
@@ -123,7 +119,8 @@ Hint: All of these words end with the letters "ells".
 const seashells = 'She sells seashells by the seashore. The shells she sells are surely seashells. So if she sells shells on the seashore, I\'m sure she sells seashore shells.';
 
 const findShells = (str) => {
-  // Solution code here...
+  const regex = /(s((eas)?h)?(ells))/g;
+  return str.match(regex);
 };
 
 /* ------------------------------------------------------------------------------------------------
