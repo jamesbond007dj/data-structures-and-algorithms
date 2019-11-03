@@ -10,7 +10,7 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  return arr.reduce((count)=>count +=1,0)
+  return arr.reduce((count)=>count +=1,0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,7 +89,7 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 const reversedString = (str) => {
   return str.split("").reduce((answerSoFar, value)=> {
     answerSoFar.unshift(value);
-    return answerSoFar
+    return answerSoFar;
   }, []).join('');  
 };
 
@@ -179,7 +179,6 @@ const isPrime = (value) => {
   }
   return value > 1;
 };
-
 const countPrimeNumbers = (arr) => {
  return arr.reduce((answerSoFar , number) => isPrime(number)? ++answerSoFar : answerSoFar, 0); 
 };
@@ -187,7 +186,8 @@ const countPrimeNumbers = (arr) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
 
-Write a function named extractState that, given the snorlaxData, below, uses reduce to return the object whose 'name' property matches the given string.
+Write a function named extractState that, given the snorlaxData, below, 
+uses reduce to return the object whose 'name' property matches the given string.
 
 If the input array does not have a stat with that specific name, the function should return null.
 ------------------------------------------------------------------------------------------------ */
@@ -224,7 +224,7 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  return arr.reduce((answerSoFar, value) => value.stat.name === value ? value : answerSoFar);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -294,7 +294,7 @@ describe('Testing challenge 7', () => {
   });
 });
 
-describe('Testing challenge 8', () => {
+xdescribe('Testing challenge 8', () => {
   test('It should return an array containing the names of the children', () => {
     expect(extractChildren(characters)).toStrictEqual([ 'Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras' ]);
     expect(extractChildren(characters).length).toStrictEqual(10);
