@@ -17,8 +17,8 @@ const howMuchPencil = (str) => {
   let result = [];
   for (let i = 0; i<= str.length; i++) {
    result.push(str.slice(i));
- }
-   return result;
+  }
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -79,7 +79,7 @@ const listFoods = (recipe) => {
   let result = [];
   recipe.ingredients.forEach(i => {
     result.push(i.replace(/(\S+\s+){2}/, ''));
-  })
+  });
   return result;
 };
 
@@ -93,10 +93,12 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  recipe.ingredients.forEach(i => {
-    result.push(i.split('').slice('').join(''));
+  recipe.ingredients.forEach ( i => {
+    let sliceOne = i.split(' ').slice(2);
+    let stringTwo = sliceOne.join(' ');
+    result.push(stringTwo);
   });
-  return result;
+   return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,10 +113,10 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
- for (let i = 0; i < recipe.actions.length; i++) {
-   let action = recipe.actions[i].split('', 1)
-   result.push(action[0])
- }
+  recipe.steps.forEach ( s => {
+    let splitOne = s.split(' ');
+    result.push(splitOne[0]);
+  });
   return result;
 };
 
@@ -132,11 +134,13 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  for (let i = 0; i< arr.length; i++){
-    if (arr[i] %2 === 0) {
-      arr.splice(i, 1);
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] % 2 === 0){ 
+      arr.splice(i, 1); 
+      i--;
     }
   }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -168,7 +172,10 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 
 const totalSumCSV = (str) => {
   let total = 0;
-  // Solution code here...
+  let num = str.split(',');
+  for (let i = 0; i < num.length; i++) {
+    total += parseInt(num[i]);
+  }
   return total;
 };
 
@@ -182,7 +189,8 @@ For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
 const removeVowels = (str) => {
-  // Solution code here...
+  const regex = /[aeiuo]/gi;
+  return str.replace(regex, '');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -293,7 +301,7 @@ describe('Testing challenge 9', () => {
   });
 });
 
-describe('Testing challenge 10', () => {
+xdescribe('Testing challenge 10', () => {
   test('It should return the string without vowels', () => {
     expect(extractVowels('gregor')).toStrictEqual(['grgr', 'eo']);
     expect(extractVowels('gregor').length).toStrictEqual(2);
